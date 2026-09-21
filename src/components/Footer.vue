@@ -1,20 +1,20 @@
 <script setup>
-import { Github, Linkedin, Mail } from "lucide-vue-next";
+import { socials } from '../data/SocialData'
 
-const year = new Date().getFullYear();
-
-const socials = [
-  { icon: Github, link: "https://github.com/elfakn", label: "GitHub" },
-  { icon: Linkedin, link: "https://www.linkedin.com/in/elfa-khoirun-nissa/", label: "LinkedIn" },
-  { icon: Mail, link: "mailto:elfa.khoirunissa@gmail.com", label: "Email" },
-];
+const year = new Date().getFullYear()
 </script>
 
 <template>
-  <footer class="w-full border-t border-gray-200 dark:border-white/10 bg-gray-50/70 dark:bg-gray-950/60">
-    <div class="w-11/12 max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 py-6">
+  <footer
+    class="w-full border-t border-gray-200 dark:border-white/10 bg-gray-50/70 dark:bg-gray-950/60"
+  >
+    <div
+      class="w-11/12 max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 py-6"
+    >
       <p class="text-gray-500 dark:text-gray-400 text-sm text-center sm:text-left">
-        © {{ year }} <span class="font-semibold text-gray-800 dark:text-white">Elfa Khoirun Nissa</span>. All rights reserved.
+        © {{ year }}
+        <span class="font-semibold text-gray-800 dark:text-white">Elfa Khoirun Nissa</span>. All
+        rights reserved.
       </p>
       <div class="flex items-center gap-2">
         <a
