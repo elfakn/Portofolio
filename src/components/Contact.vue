@@ -1,58 +1,64 @@
 <script setup>
-import { Mail, Linkedin, Github } from "lucide-vue-next";
+import { Mail, Linkedin, Github, MessageCircle, ArrowUpRight } from "lucide-vue-next";
 
 const contacts = [
   {
     icon: Mail,
     label: "Email",
-    value: "Send me an email", // ganti dengan email kamu
+    value: "elfa.khoirunissa@gmail.com",
     link: "mailto:elfa.khoirunissa@gmail.com",
+  },
+  {
+    icon: MessageCircle,
+    label: "WhatsApp",
+    value: "+62 812-3456-7890",
+    link: "https://wa.me/6281234567890",
   },
   {
     icon: Linkedin,
     label: "LinkedIn",
-    value: "Connect with me professionally", // ganti dengan profil kamu
-    link: "hhttps://www.linkedin.com/in/elfa-khoirun-nissa/",
+    value: "linkedin.com/in/elfa-khoirun-nissa",
+    link: "https://www.linkedin.com/in/elfa-khoirun-nissa/",
   },
   {
     icon: Github,
     label: "GitHub",
-    value: "View my repositories and open source contributions", // ganti dengan profil kamu
+    value: "github.com/elfakn",
     link: "https://github.com/elfakn",
   },
 ];
 </script>
 
 <template>
-  <section id="contact" class="w-11/12 max-w-4xl mx-auto py-20 text-center">
-    <h2
-      class="text-3xl font-bold text-gray-900 dark:text-white mb-6"
-    >
-      Contact Me
-    </h2>
-    <p class="text-gray-600 dark:text-gray-300 mb-10 max-w-xl mx-auto">
-      Feel free to reach out for collaboration, opportunities, or just to say
-      hello!
-    </p>
+  <section id="contact" class="w-11/12 max-w-6xl mx-auto py-16 sm:py-20">
+    <div class="mb-8">
+      <p class="text-xs font-semibold tracking-widest text-brand-600 dark:text-brand-400 uppercase">Contact</p>
+      <h2 class="mt-2 font-display text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">Let's work together</h2>
+      <p class="mt-3 mx-auto max-w-2xl text-[15px] leading-6 text-gray-600 dark:text-gray-400">
+        I'm open to collaboration, freelance projects, and new opportunities — feel free to reach out through any channel below.
+      </p>
+    </div>
 
-    <!-- Contact Cards -->
-    <div class="flex flex-col sm:flex-row justify-center gap-6">
+    <div class="grid sm:grid-cols-2 gap-6 mt-10">
       <a
         v-for="(item, index) in contacts"
         :key="index"
         :href="item.link"
         target="_blank"
-        class="flex items-center gap-3 bg-white dark:bg-gray-800 shadow-md border border-gray-200 dark:border-gray-700 rounded-xl px-6 py-4"
+        rel="noreferrer"
+        class="group relative overflow-hidden rounded-[1.25rem] border border-gray-200 dark:border-white/10 bg-white dark:bg-white/[0.04] px-6 py-6 shadow-sm hover:shadow-md transition focus-visible:outline-none"
       >
-        <component :is="item.icon" class="w-6 h-6 text-blue-500" />
-        <div class="text-left">
-          <p class="font-medium text-gray-900 dark:text-white">
-            {{ item.label }}
-          </p>
-          <p class="text-sm text-gray-600 dark:text-gray-400 truncate max-w-[200px]">
-            {{ item.value }}
-          </p>
+        <div class="flex items-start gap-4">
+          <span class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-600 text-white shadow-sm">
+            <component :is="item.icon" class="w-5 h-5" aria-hidden="true" />
+          </span>
+          <div class="min-w-0 flex-1">
+            <p class="text-[15px] font-semibold text-gray-900 dark:text-white">{{ item.label }}</p>
+            <p class="mt-1 text-sm leading-5 text-gray-500 dark:text-gray-400 line-clamp-2">{{ item.value }}</p>
+          </div>
+          <ArrowUpRight class="w-4 h-4 shrink-0 text-gray-300 dark:text-gray-500 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-gray-700 dark:group-hover:text-gray-200" aria-hidden="true" />
         </div>
+        <span aria-hidden="true" class="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-brand-500/50 to-transparent opacity-0 transition group-hover:opacity-100"></span>
       </a>
     </div>
   </section>
